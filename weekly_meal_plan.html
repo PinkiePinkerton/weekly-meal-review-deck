@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Family Meal Plan - Week of Nov 16 - Nov 22, 2026</title>
+<style>
+    @page {
+        size: letter portrait;
+        margin: 0;
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc;
+        color: #0f172a;
+    }
+    .page-container {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        background: #ffffff;
+        padding-left: 0.45in;
+        padding-right: 0.45in;
+        padding-bottom: 0.25in;
+        /* EXACT 0.75 INCH TOP CLEARANCE FOR FRIDGE MAGNETIC CLIP (REDUCED 0.5IN) */
+        padding-top: 0.75in;
+    }
+    .header-bar {
+        text-align: center;
+        border-bottom: 2px solid #1e293b;
+        padding-bottom: 6px;
+        margin-bottom: 10px;
+    }
+    .header-title {
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        color: #0f172a;
+        text-transform: uppercase;
+    }
+    table.plan-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+    }
+    table.plan-table th {
+        background: #1e293b;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        padding: 5px 8px;
+        text-align: left;
+        border: 1px solid #1e293b;
+    }
+    table.plan-table td {
+        border: 1px solid #cbd5e1;
+        padding: 5px 8px;
+        vertical-align: top;
+    }
+    .day-cell {
+        width: 13%;
+        background: #f1f5f9;
+        text-align: center;
+    }
+    .day-name {
+        font-size: 14px;
+        font-weight: 800;
+        color: #0f172a;
+    }
+    .slot-badge {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        background: #e2e8f0;
+        color: #334155;
+        padding: 2px 6px;
+        border-radius: 3px;
+        margin-top: 3px;
+    }
+    .meals-cell {
+        width: 26%;
+        background: #ffffff;
+    }
+    .meal-line {
+        margin-bottom: 3px;
+        line-height: 1.35;
+    }
+    .entree-text {
+        font-weight: 800;
+        color: #0f172a;
+        font-size: 14px;
+    }
+    .side-line {
+        font-size: 13px;
+        font-weight: 500;
+        color: #1e293b;
+        padding-left: 2px;
+    }
+    .badge {
+        display: inline-block;
+        padding: 1px 5px;
+        border-radius: 3px;
+        font-size: 9.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-right: 4px;
+    }
+    .badge-e {
+        background: #0284c7;
+        color: #ffffff;
+    }
+    .badge-s {
+        background: #16a34a;
+        color: #ffffff;
+    }
+    .badge-f {
+        background: #ea580c;
+        color: #ffffff;
+    }
+    .thaw-cell {
+        width: 22%;
+        background: #fafaf9;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.35;
+        color: #1e293b;
+    }
+    .last-day-cell {
+        width: 12%;
+        background: #fffbeb;
+        padding-top: 8px;
+    }
+    .ingredients-cell {
+        width: 27%;
+        background: #ffffff;
+        font-size: 13px;
+        font-weight: 500;
+        color: #1e293b;
+        line-height: 1.35;
+    }
+    .write-in-line {
+        border-bottom: 1px dashed #cbd5e1;
+        margin-top: 4px;
+        min-height: 12px;
+    }
+    .write-in-line-full {
+        border-bottom: 1px dashed #cbd5e1;
+        margin-bottom: 8px;
+        height: 14px;
+    }
+    .weekend-row {
+        background: #f8fafc;
+    }
+    @media print {
+        html, body {
+            background: #ffffff;
+            height: 100%;
+            overflow: hidden;
+        }
+        .page-container {
+            box-shadow: none;
+            margin: 0;
+            width: 100%;
+            min-height: auto;
+            padding-top: 0.75in;
+            padding-bottom: 0.2in;
+            page-break-inside: avoid;
+            page-break-after: avoid;
+        }
+        table.plan-table {
+            page-break-inside: avoid;
+        }
+        tr {
+            page-break-inside: avoid;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="header-bar">
+        <div class="header-title">Week of Nov 16 - Nov 22, 2026</div>
+    </div>
+
+    <table class="plan-table">
+        <thead>
+            <tr>
+                <th>Day / Slot</th>
+                <th>Meals (Entrée + Sides)</th>
+                <th>Thaw & Morning Prep</th>
+                <th>Last Day (Write-in)</th>
+                <th>Ingredients</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr class="weekday-row">
+            <td class="day-cell">
+                <div class="day-name">Monday</div>
+                <div class="slot-badge">Dinner</div>
+            </td>
+            <td class="meals-cell">
+                <div class="meal-line"><span class="badge badge-e">E</span> <span class="entree-text">Tacos</span></div>
+                <div class="meal-line side-line"><span class="badge badge-s">Veg</span> Lettuce & tomato</div>
+                <div class="meal-line side-line"><span class="badge badge-f">Fruit</span> Apples</div>
+            </td>
+            <td class="thaw-cell">
+                <div class="thaw-content">Thaw deli meat</div>
+                <div class="write-in-line"></div>
+            </td>
+            <td class="last-day-cell">
+                <div class="write-in-line-full"></div>
+                <div class="write-in-line-full"></div>
+            </td>
+            <td class="ingredients-cell">
+                <div class="ingredients-content">Corn tortillas, Ground beef, Tomatoes, Shredded cheddar, Salsa, Greens, Avocados, Sour cream, Apples</div>
+                <div class="write-in-line"></div>
+            </td>
+        </tr>
+        
+        <tr class="weekday-row">
+            <td class="day-cell">
+                <div class="day-name">Tuesday</div>
+                <div class="slot-badge">Dinner</div>
+            </td>
+            <td class="meals-cell">
+                <div class="meal-line"><span class="badge badge-e">E</span> <span class="entree-text">Sandwiches</span></div>
+                <div class="meal-line side-line"><span class="badge badge-s">Veg</span> Slaw & green beans</div>
+                <div class="meal-line side-line"><span class="badge badge-f">Fruit</span> Strawberries & swerve</div>
+            </td>
+            <td class="thaw-cell">
+                <div class="thaw-content">Thaw beef x3</div>
+                <div class="write-in-line"></div>
+            </td>
+            <td class="last-day-cell">
+                <div class="write-in-line-full"></div>
+                <div class="write-in-line-full"></div>
+            </td>
+            <td class="ingredients-cell">
+                <div class="ingredients-content">Deli turkey, Deli ham, Bread, Tomatoes, Green beans, Bacon, Slaw mix, Avocados, Strawberries, Swerve</div>
+                <div class="write-in-line"></div>
+            </td>
+        </tr>
+        
+        <tr class="weekday-row">
+            <td class="day-cell">
+                <div class="day-name">Wednesday</div>
+                <div class="slot-badge">Dinner</div>
+            </td>
+            <td class="meals-cell">
+                <div class="meal-line"><span class="badge badge-e">E</span> <span class="entree-text">Beefy tomato rice casserole</span></div>
+                <div class="meal-line side-line"><span class="badge badge-s">Veg</span> Broccoli</div>
+                <div class="meal-line side-line"><span class="badge badge-f">Fruit</span> Apples</div>
+            </td>
+            <td class="thaw-cell">
+                <div class="thaw-content">Parboil rice, Thaw beef & dogs</div>
+                <div class="write-in-line"></div>
+            </td>
+            <td class="last-day-cell">
+                <div class="write-in-line-full"></div>
+                <div class="write-in-line-full"></div>
+            </td>
+            <td class="ingredients-cell">
+                <div class="ingredients-content">Ground beef, Rice, Tomato soup, Cream of mushroom soup, Broccoli, Apples</div>
+                <div class="write-in-line"></div>
+            </td>
+        </tr>
+        
+        <tr class="weekday-row">
+            <td class="day-cell">
+                <div class="day-name">Thursday</div>
+                <div class="slot-badge">Dinner</div>
+            </td>
+            <td class="meals-cell">
+                <div class="meal-line"><span class="badge badge-e">E</span> <span class="entree-text">Burgers & dogs</span></div>
+                <div class="meal-line side-line"><span class="badge badge-s">Veg</span> Fries & slaw</div>
+                <div class="meal-line side-line"><span class="badge badge-f">Fruit</span> Apples</div>
+            </td>
+            <td class="thaw-cell">
+                <div class="thaw-content"></div>
+                <div class="write-in-line"></div>
+            </td>
+            <td class="last-day-cell">
+                <div class="write-in-line-full"></div>
+                <div class="write-in-line-full"></div>
+            </td>
+            <td class="ingredients-cell">
+                <div class="ingredients-content">Hamburger buns, Ground beef, All-beef dogs, Fries, Slaw mix, Avocados, Apples</div>
+                <div class="write-in-line"></div>
+            </td>
+        </tr>
+        
+        <tr class="weekday-row">
+            <td class="day-cell">
+                <div class="day-name">Friday</div>
+                <div class="slot-badge">Dinner</div>
+            </td>
+            <td class="meals-cell">
+                <div class="meal-line"><span class="badge badge-e">E</span> <span class="entree-text">Pizza (Little Caesars)</span></div>
+                <div class="meal-line side-line"><span class="badge badge-s">Veg</span> Wedge salad</div>
+                <div class="meal-line side-line"><span class="badge badge-f">Fruit</span> Strawberries & swerve</div>
+            </td>
+            <td class="thaw-cell">
+                <div class="thaw-content">Thaw sausage, bacon, and/or ham, Thaw chuck roast</div>
+                <div class="write-in-line"></div>
+            </td>
+            <td class="last-day-cell">
+                <div class="write-in-line-full"></div>
+                <div class="write-in-line-full"></div>
+            </td>
+            <td class="ingredients-cell">
+                <div class="ingredients-content">Greens, Bacon bits, Avocados, Tomato, Strawberries, Swerve</div>
+                <div class="write-in-line"></div>
+            </td>
+        </tr>
+        
+        <tr class="weekend-row">
+            <td class="day-cell">
+                <div class="day-name">Saturday</div>
+                <div class="slot-badge">Lunch</div>
+            </td>
+            <td class="meals-cell">
+                <div class="meal-line"><span class="badge badge-e">E</span> <span class="entree-text">Egg skillet</span></div>
+                <div class="meal-line side-line"><span class="badge badge-s">Veg</span> None</div>
+                <div class="meal-line side-line"><span class="badge badge-f">Fruit</span> Apples</div>
+            </td>
+            <td class="thaw-cell">
+                <div class="thaw-content">Thaw beef x3</div>
+                <div class="write-in-line"></div>
+            </td>
+            <td class="last-day-cell">
+                <div class="write-in-line-full"></div>
+                <div class="write-in-line-full"></div>
+            </td>
+            <td class="ingredients-cell">
+                <div class="ingredients-content">Eggland's Best eggs (24-pack), Sausage, Bacon, Ham, Spinach, Fries, Peppers, Onions, Cream cheese, Green chili, Apples</div>
+                <div class="write-in-line"></div>
+            </td>
+        </tr>
+        
+        <tr class="weekend-row">
+            <td class="day-cell">
+                <div class="day-name">Saturday</div>
+                <div class="slot-badge">Dinner</div>
+            </td>
+            <td class="meals-cell">
+                <div class="meal-line"><span class="badge badge-e">E</span> <span class="entree-text">Smoked chuck roast</span></div>
+                <div class="meal-line side-line"><span class="badge badge-s">Veg</span> Slaw</div>
+                <div class="meal-line side-line"><span class="badge badge-f">Fruit</span> Apples</div>
+            </td>
+            <td class="thaw-cell">
+                <div class="thaw-content"></div>
+                <div class="write-in-line"></div>
+            </td>
+            <td class="last-day-cell">
+                <div class="write-in-line-full"></div>
+                <div class="write-in-line-full"></div>
+            </td>
+            <td class="ingredients-cell">
+                <div class="ingredients-content">Chuck roast, Beef bouillon, Slaw mix, Apples</div>
+                <div class="write-in-line"></div>
+            </td>
+        </tr>
+        
+        <tr class="weekend-row">
+            <td class="day-cell">
+                <div class="day-name">Sunday</div>
+                <div class="slot-badge">Lunch</div>
+            </td>
+            <td class="meals-cell">
+                <div class="meal-line"><span class="badge badge-e">E</span> <span class="entree-text">Leftovers</span></div>
+                <div class="meal-line side-line"><span class="badge badge-s">Veg</span> Slaw</div>
+                <div class="meal-line side-line"><span class="badge badge-f">Fruit</span> Strawberries & swerve</div>
+            </td>
+            <td class="thaw-cell">
+                <div class="thaw-content">Check Monday dinner</div>
+                <div class="write-in-line"></div>
+            </td>
+            <td class="last-day-cell">
+                <div class="write-in-line-full"></div>
+                <div class="write-in-line-full"></div>
+            </td>
+            <td class="ingredients-cell">
+                <div class="ingredients-content">Slaw mix, Strawberries, Swerve</div>
+                <div class="write-in-line"></div>
+            </td>
+        </tr>
+        
+        <tr class="weekend-row">
+            <td class="day-cell">
+                <div class="day-name">Sunday</div>
+                <div class="slot-badge">Dinner</div>
+            </td>
+            <td class="meals-cell">
+                <div class="meal-line"><span class="badge badge-e">E</span> <span class="entree-text">Pasta</span></div>
+                <div class="meal-line side-line"><span class="badge badge-s">Veg</span> Caesar salad & corn</div>
+                <div class="meal-line side-line"><span class="badge badge-f">Fruit</span> Apples</div>
+            </td>
+            <td class="thaw-cell">
+                <div class="thaw-content"></div>
+                <div class="write-in-line"></div>
+            </td>
+            <td class="last-day-cell">
+                <div class="write-in-line-full"></div>
+                <div class="write-in-line-full"></div>
+            </td>
+            <td class="ingredients-cell">
+                <div class="ingredients-content">Rotini pasta, Marinara sauce, Caesar dressing, Corn, Greens, Apples</div>
+                <div class="write-in-line"></div>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

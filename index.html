@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Meal Plan Review Deck - November 16 - November 22, 2026</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+        background: #0b1120;
+        color: #f8fafc;
+        padding: 14px;
+        padding-bottom: 120px;
+    }
+    .wrapper {
+        max-width: 1260px;
+        margin: 0 auto;
+    }
+    .header {
+        text-align: center;
+        padding: 14px 0 16px;
+        border-bottom: 1px solid #1e293b;
+        margin-bottom: 16px;
+    }
+    .header h1 {
+        font-size: 24px;
+        font-weight: 800;
+        color: #38bdf8;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .header p {
+        font-size: 14px;
+        color: #94a3b8;
+        margin-top: 4px;
+    }
+    .header .deck-pill {
+        display: inline-block;
+        background: #1e293b;
+        border: 1px solid #0284c7;
+        color: #38bdf8;
+        font-size: 11.5px;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 999px;
+        margin-top: 8px;
+    }
+
+    .instructions-card {
+        background: #1e293b;
+        border-left: 4px solid #38bdf8;
+        padding: 14px 16px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        font-size: 13.5px;
+        line-height: 1.45;
+        color: #cbd5e1;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    .instructions-card strong {
+        color: #38bdf8;
+    }
+
+    /* 2-Column Grid Layout */
+    .grid-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+    @media (min-width: 960px) {
+        .grid-layout {
+            grid-template-columns: 3fr 2fr;
+            align-items: start;
+        }
+    }
+
+    /* Left Column: Meal Cards */
+    .cards-container {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+    .day-card {
+        background: #162032;
+        border: 1px solid #293548;
+        border-radius: 10px;
+        padding: 14px 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .day-card.flash-highlight {
+        border-color: #38bdf8;
+        box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+    .card-top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .day-title {
+        font-size: 16px;
+        font-weight: 800;
+        color: #ffffff;
+    }
+    .slot-pill {
+        background: #334155;
+        color: #e2e8f0;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 4px;
+        text-transform: uppercase;
+    }
+
+    /* Entree Selector Bar */
+    .entree-control-box {
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 12px;
+    }
+    .entree-header-line {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+    }
+    .entree-label-tag {
+        font-size: 11px;
+        font-weight: 800;
+        color: #94a3b8;
+        text-transform: uppercase;
+    }
+    .entree-select {
+        background: #0284c7;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 800;
+        border: none;
+        border-radius: 6px;
+        padding: 6px 12px;
+        cursor: pointer;
+        flex-grow: 1;
+        outline: none;
+        max-width: 100%;
+    }
+    .entree-select option {
+        background: #1e293b;
+        color: #f8fafc;
+        font-weight: 600;
+    }
+    .day-rec-pill {
+        font-size: 11.5px;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
+    }
+    .rec-ready {
+        background: #14532d;
+        color: #86efac;
+    }
+    .rec-alert {
+        background: #7f1d1d;
+        color: #fca5a5;
+    }
+    .rec-na {
+        background: #334155;
+        color: #94a3b8;
+    }
+
+    /* Shift & Swap Controls */
+    .shift-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        padding-top: 6px;
+        border-top: 1px solid #1e293b;
+    }
+    .shift-btn {
+        background: #1e293b;
+        color: #cbd5e1;
+        border: 1px solid #334155;
+        padding: 4px 9px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    .shift-btn:hover {
+        background: #334155;
+        color: #ffffff;
+    }
+    .swap-select {
+        background: #1e293b;
+        color: #94a3b8;
+        border: 1px solid #334155;
+        padding: 4px 8px;
+        border-radius: 5px;
+        font-size: 12px;
+        cursor: pointer;
+        outline: none;
+    }
+
+    /* Sides & Prep Pill Line */
+    .sides-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+    }
+    .side-pill {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 3px 8px;
+        border-radius: 4px;
+    }
+    .veg-pill {
+        background: #14532d;
+        color: #86efac;
+    }
+    .fruit-pill {
+        background: #701a75;
+        color: #f0abfc;
+    }
+    .thaw-pill {
+        background: #451a03;
+        color: #fdba74;
+    }
+
+    /* Ingredients Checklist */
+    .section-label {
+        font-size: 11.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #94a3b8;
+        margin-bottom: 6px;
+    }
+    .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .check-item {
+        background: #0f172a;
+        border: 1px solid #334155;
+        padding: 5px 9px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #e2e8f0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        user-select: none;
+    }
+    .check-item input[type="checkbox"] {
+        accent-color: #22c55e;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+    }
+
+    /* Right Column: Master Entree Catalog / Bank */
+    .catalog-panel {
+        background: #162032;
+        border: 1px solid #293548;
+        border-radius: 10px;
+        padding: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        position: sticky;
+        top: 14px;
+    }
+    .catalog-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        border-bottom: 1px solid #293548;
+        padding-bottom: 10px;
+    }
+    .catalog-title {
+        font-size: 17px;
+        font-weight: 800;
+        color: #38bdf8;
+    }
+    .catalog-sub {
+        font-size: 12px;
+        color: #94a3b8;
+    }
+    .search-box {
+        width: 100%;
+        background: #0f172a;
+        border: 1px solid #334155;
+        color: #f8fafc;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        margin-bottom: 12px;
+        outline: none;
+    }
+    .search-box:focus {
+        border-color: #38bdf8;
+    }
+    .catalog-scroll {
+        max-height: 600px;
+        overflow-y: auto;
+    }
+    .catalog-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+    }
+    .catalog-table th {
+        background: #0f172a;
+        color: #94a3b8;
+        text-transform: uppercase;
+        font-size: 10.5px;
+        font-weight: 700;
+        padding: 7px 8px;
+        text-align: left;
+        position: sticky;
+        top: 0;
+    }
+    .catalog-table td {
+        padding: 7px 8px;
+        border-bottom: 1px solid #1e293b;
+        vertical-align: middle;
+    }
+    .rec-entree {
+        font-weight: 700;
+        color: #f8fafc;
+    }
+    .rec-date {
+        color: #94a3b8;
+        font-size: 11px;
+    }
+    .rec-badge {
+        display: inline-block;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 10.5px;
+        font-weight: 700;
+    }
+    .badge-ready {
+        background: #14532d;
+        color: #86efac;
+    }
+    .badge-alert {
+        background: #7f1d1d;
+        color: #fca5a5;
+    }
+    .badge-na {
+        background: #334155;
+        color: #94a3b8;
+    }
+    .bank-assign-btn {
+        background: #0284c7;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        padding: 3px 6px;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
+    }
+    .bank-assign-btn option {
+        background: #1e293b;
+        color: #ffffff;
+    }
+
+    /* Fixed Bottom Action Bar */
+    .action-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #0b1120;
+        border-top: 1px solid #334155;
+        padding: 12px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        z-index: 100;
+        box-shadow: 0 -4px 16px rgba(0,0,0,0.4);
+    }
+    .action-btns-row {
+        display: flex;
+        gap: 12px;
+        width: 100%;
+        max-width: 800px;
+    }
+    .save-btn {
+        background: #334155;
+        color: #ffffff;
+        border: 1px solid #475569;
+        padding: 12px 18px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+    .save-btn:hover {
+        background: #475569;
+    }
+    .approve-btn {
+        background: #16a34a;
+        color: #ffffff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 800;
+        cursor: pointer;
+        flex-grow: 1;
+        box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+    }
+    .approve-btn:active {
+        background: #15803d;
+        transform: scale(0.99);
+    }
+    .action-subtext {
+        font-size: 12px;
+        color: #94a3b8;
+    }
+
+    /* Modal */
+    #success-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.85);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 200;
+    }
+    .modal-box {
+        background: #1e293b;
+        padding: 24px;
+        border-radius: 12px;
+        max-width: 460px;
+        text-align: center;
+        border: 1px solid #38bdf8;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .modal-box h2 {
+        color: #86efac;
+        font-size: 21px;
+        margin-bottom: 10px;
+    }
+    .modal-box p {
+        font-size: 14px;
+        color: #cbd5e1;
+        line-height: 1.45;
+        margin-bottom: 18px;
+    }
+    .modal-link {
+        display: inline-block;
+        background: #0284c7;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 14px;
+        margin-right: 8px;
+    }
+    .modal-close {
+        display: inline-block;
+        background: #334155;
+        color: #cbd5e1;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="header">
+        <h1>Family Meal Plan Review Deck</h1>
+        <p>Target Week: <strong>November 16 - November 22, 2026</strong></p>
+        <span class="deck-pill">Interactive Review Mode • Move, Swap, or Pick Any Entrée</span>
+    </div>
+
+    <div class="instructions-card">
+        <strong>How to customize your plan:</strong><br>
+        1. <strong>Swap or Change Any Entrée:</strong> Tap the blue dropdown on any meal card to select a different meal from the Master Catalog. Sides, fruits, and single-item ingredients update automatically.<br>
+        2. <strong>Reorder Days:</strong> Use <strong>⬆ Up</strong>, <strong>⬇ Down</strong>, or <strong>⇄ Swap With...</strong> to trade days.<br>
+        3. <strong>Pull from the Entrée Bank:</strong> In the catalog on the right, use <strong>Assign to ▾</strong> to drop an entree directly into any slot.<br>
+        4. <strong>Check Groceries Needed:</strong> Check off any item you need to stock up on, then tap <strong>Approve & Send to Fry's</strong> at the bottom.
+    </div>
+
+    <div class="grid-layout">
+        <!-- Left: 9 Interactive Meal Cards -->
+        <div class="cards-container" id="cards-container">
+            <!-- Dynamically populated by JS -->
+        </div>
+
+        <!-- Right: Master Entree Catalog & Bank -->
+        <div class="catalog-column">
+            <div class="catalog-panel">
+                <div class="catalog-header">
+                    <div>
+                        <div class="catalog-title">Master Entrée Bank</div>
+                        <div class="catalog-sub">29 family favorites • 5-Day Gap Law tracker</div>
+                    </div>
+                </div>
+                <input type="text" id="catalog-search" class="search-box" placeholder="🔍 Filter entrees (e.g. ribs, chicken, pasta)..." oninput="filterCatalog()">
+                <div class="catalog-scroll">
+                    <table class="catalog-table">
+                        <thead>
+                            <tr>
+                                <th>Entrée</th>
+                                <th>Last Served</th>
+                                <th>Recency</th>
+                                <th>Assign</th>
+                            </tr>
+                        </thead>
+                        <tbody id="catalog-tbody">
+                            
+        <tr class="rec-row" data-entree="Asian Dumpling Bake">
+            <td class="rec-entree">Asian Dumpling Bake</td>
+            <td class="rec-date">Monday (Nov 02)</td>
+            <td class="rec-status"><span class="rec-badge badge-ready">14d ago</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Asian Dumpling Bake', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Baby back ribs">
+            <td class="rec-entree">Baby back ribs</td>
+            <td class="rec-date">Saturday (Nov 14)</td>
+            <td class="rec-status"><span class="rec-badge badge-alert">2d ago (<5d)</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Baby back ribs', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Beefy onion rice casserole">
+            <td class="rec-entree">Beefy onion rice casserole</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Beefy onion rice casserole', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Beefy tomato rice casserole">
+            <td class="rec-entree">Beefy tomato rice casserole</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Beefy tomato rice casserole', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Burgers & dogs">
+            <td class="rec-entree">Burgers & dogs</td>
+            <td class="rec-date">Thursday (Nov 12)</td>
+            <td class="rec-status"><span class="rec-badge badge-alert">4d ago (<5d)</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Burgers & dogs', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Chicken Alfredo">
+            <td class="rec-entree">Chicken Alfredo</td>
+            <td class="rec-date">Thursday (Oct 29)</td>
+            <td class="rec-status"><span class="rec-badge badge-ready">18d ago</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Chicken Alfredo', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Chicken tenders & nuggets">
+            <td class="rec-entree">Chicken tenders & nuggets</td>
+            <td class="rec-date">Saturday (Oct 24)</td>
+            <td class="rec-status"><span class="rec-badge badge-ready">23d ago</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Chicken tenders & nuggets', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Country-style ribs">
+            <td class="rec-entree">Country-style ribs</td>
+            <td class="rec-date">Wednesday (Nov 11)</td>
+            <td class="rec-status"><span class="rec-badge badge-ready">5d ago</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Country-style ribs', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Egg skillet">
+            <td class="rec-entree">Egg skillet</td>
+            <td class="rec-date">Sunday (Nov 15)</td>
+            <td class="rec-status"><span class="rec-badge badge-alert">1d ago (<5d)</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Egg skillet', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Enchiladas">
+            <td class="rec-entree">Enchiladas</td>
+            <td class="rec-date">Monday (Oct 19)</td>
+            <td class="rec-status"><span class="rec-badge badge-ready">28d ago</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Enchiladas', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Leftovers">
+            <td class="rec-entree">Leftovers</td>
+            <td class="rec-date">Sunday (Nov 15)</td>
+            <td class="rec-status"><span class="rec-badge badge-alert">1d ago (<5d)</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Leftovers', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Meatloaf">
+            <td class="rec-entree">Meatloaf</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Meatloaf', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Pasta">
+            <td class="rec-entree">Pasta</td>
+            <td class="rec-date">Saturday (Nov 14)</td>
+            <td class="rec-status"><span class="rec-badge badge-alert">2d ago (<5d)</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Pasta', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Philly cheesesteak">
+            <td class="rec-entree">Philly cheesesteak</td>
+            <td class="rec-date">Sunday (Oct 25)</td>
+            <td class="rec-status"><span class="rec-badge badge-ready">22d ago</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Philly cheesesteak', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Pizza (Costco)">
+            <td class="rec-entree">Pizza (Costco)</td>
+            <td class="rec-date">Friday (Nov 13)</td>
+            <td class="rec-status"><span class="rec-badge badge-alert">3d ago (<5d)</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Pizza (Costco)', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Pizza (Frozen thin crust)">
+            <td class="rec-entree">Pizza (Frozen thin crust)</td>
+            <td class="rec-date">Friday (Nov 06)</td>
+            <td class="rec-status"><span class="rec-badge badge-ready">10d ago</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Pizza (Frozen thin crust)', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Pizza (Homemade)">
+            <td class="rec-entree">Pizza (Homemade)</td>
+            <td class="rec-date">Friday (Oct 23)</td>
+            <td class="rec-status"><span class="rec-badge badge-ready">24d ago</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Pizza (Homemade)', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Pizza (Leftovers)">
+            <td class="rec-entree">Pizza (Leftovers)</td>
+            <td class="rec-date">Friday (Nov 13)</td>
+            <td class="rec-status"><span class="rec-badge badge-alert">3d ago (<5d)</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Pizza (Leftovers)', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Pizza (Little Caesars)">
+            <td class="rec-entree">Pizza (Little Caesars)</td>
+            <td class="rec-date">Friday (Nov 13)</td>
+            <td class="rec-status"><span class="rec-badge badge-alert">3d ago (<5d)</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Pizza (Little Caesars)', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Pork chops">
+            <td class="rec-entree">Pork chops</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Pork chops', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Pot roast">
+            <td class="rec-entree">Pot roast</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Pot roast', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Pulled pork quesadillas">
+            <td class="rec-entree">Pulled pork quesadillas</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Pulled pork quesadillas', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Pulled pork sandwiches">
+            <td class="rec-entree">Pulled pork sandwiches</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Pulled pork sandwiches', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Ribeye steak">
+            <td class="rec-entree">Ribeye steak</td>
+            <td class="rec-date">Thursday (Nov 05)</td>
+            <td class="rec-status"><span class="rec-badge badge-ready">11d ago</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Ribeye steak', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Sandwiches">
+            <td class="rec-entree">Sandwiches</td>
+            <td class="rec-date">Tuesday (Nov 10)</td>
+            <td class="rec-status"><span class="rec-badge badge-ready">6d ago</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Sandwiches', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Smoked brisket">
+            <td class="rec-entree">Smoked brisket</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Smoked brisket', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Smoked chuck roast">
+            <td class="rec-entree">Smoked chuck roast</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Smoked chuck roast', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Smoked pulled pork">
+            <td class="rec-entree">Smoked pulled pork</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Smoked pulled pork', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Soup / Chili">
+            <td class="rec-entree">Soup / Chili</td>
+            <td class="rec-date">Saturday (Oct 24)</td>
+            <td class="rec-status"><span class="rec-badge badge-ready">23d ago</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Soup / Chili', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Taco bowls">
+            <td class="rec-entree">Taco bowls</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Taco bowls', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Tacos">
+            <td class="rec-entree">Tacos</td>
+            <td class="rec-date">Monday (Nov 09)</td>
+            <td class="rec-status"><span class="rec-badge badge-ready">7d ago</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Tacos', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Turkey legs">
+            <td class="rec-entree">Turkey legs</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Turkey legs', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+        <tr class="rec-row" data-entree="Wings">
+            <td class="rec-entree">Wings</td>
+            <td class="rec-date">Never / Inactive window</td>
+            <td class="rec-status"><span class="rec-badge badge-na">N/A</span></td>
+            <td class="rec-action">
+                <select class="bank-assign-btn" onchange="assignFromBank('Wings', this.value); this.value='';">
+                    <option value="">Assign to ▾</option>
+                    <option value="0">Mon Dinner</option>
+                    <option value="1">Tue Dinner</option>
+                    <option value="2">Wed Dinner</option>
+                    <option value="3">Thu Dinner</option>
+                    <option value="4">Fri Dinner</option>
+                    <option value="5">Sat Lunch</option>
+                    <option value="6">Sat Dinner</option>
+                    <option value="7">Sun Lunch</option>
+                    <option value="8">Sun Dinner</option>
+                </select>
+            </td>
+        </tr>
+        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bottom Action Bar -->
+<div class="action-bar">
+    <div class="action-btns-row">
+        <button class="save-btn" onclick="savePlanChanges(false)">💾 Save Changes</button>
+        <button class="approve-btn" onclick="submitApproval()">✓ Approve & Send to Fry's</button>
+    </div>
+    <div class="action-subtext" id="action-summary">
+        All 9 meal slots active • Tap any checkbox above to select groceries to buy
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div id="success-modal">
+    <div class="modal-box">
+        <h2 id="modal-title">Meal Plan Updated!</h2>
+        <p id="modal-summary">Your customized meal plan has been saved and the printable fridge sheet is ready.</p>
+        <div>
+            <a href="http://localhost:8080/weekly_meal_plan.html" target="_blank" class="modal-link">Open Printable Fridge Sheet</a>
+            <button class="modal-close" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Master Data & Configuration
+const MASTER_ENTREES = ["Asian Dumpling Bake", "Baby back ribs", "Beefy onion rice casserole", "Beefy tomato rice casserole", "Burgers & dogs", "Chicken Alfredo", "Chicken tenders & nuggets", "Country-style ribs", "Egg skillet", "Enchiladas", "Leftovers", "Meatloaf", "Pasta", "Philly cheesesteak", "Pizza (Costco)", "Pizza (Frozen thin crust)", "Pizza (Homemade)", "Pizza (Leftovers)", "Pizza (Little Caesars)", "Pork chops", "Pot roast", "Pulled pork quesadillas", "Pulled pork sandwiches", "Ribeye steak", "Sandwiches", "Smoked brisket", "Smoked chuck roast", "Smoked pulled pork", "Soup / Chili", "Taco bowls", "Tacos", "Turkey legs", "Wings"];
+const RECIPES = {"Pizza (Leftovers)": {"veggie": "Wedge salad", "prep": "", "ingredients": ["Greens", "Bacon bits", "Avocados", "Tomato"]}, "Pulled pork quesadillas": {"veggie": "Slaw", "prep": "", "ingredients": ["Pork shoulder", "Tortillas", "Shredded cheddar", "BBQ sauce", "Slaw mix"]}, "Enchiladas": {"veggie": "Slaw", "prep": "", "ingredients": ["Corn tortillas", "Ground beef", "Enchilada sauce", "Shredded cheddar", "Slaw mix"]}, "Chicken enchiladas": {"veggie": "Slaw", "prep": "", "ingredients": ["Corn tortillas", "Chicken thigh", "Enchilada sauce", "Shredded cheddar", "Slaw mix"]}, "Egg skillet": {"veggie": "None", "prep": "Thaw chicken tenders (for Wed)", "ingredients": ["Eggland's Best eggs (24-pack)", "Sausage", "Bacon", "Ham", "Spinach", "Fries", "Peppers", "Onions", "Cream cheese", "Green chili"]}, "Chicken tenders & nuggets": {"veggie": "Green beans", "prep": "Thaw chicken breasts (for Thu Chicken Alfredo)", "ingredients": ["Chicken thigh", "Raw chicken nuggets (for Lymric)", "Shake & Bake mix", "Baked beans", "Green beans"]}, "Chicken Alfredo": {"veggie": "Asparagus", "prep": "", "ingredients": ["Pasta", "Alfredo sauce", "Chicken thigh", "Asparagus"]}, "Little Caesars pizza": {"veggie": "Wedge salad", "prep": "Thaw deli meat & bacon", "ingredients": ["Greens", "Bacon bits", "Avocados", "Tomato"]}, "Pizza (Little Caesars)": {"veggie": "Wedge salad", "prep": "Thaw deli meat & bacon", "ingredients": ["Greens", "Bacon bits", "Avocados", "Tomato"]}, "Pizza (Frozen thin crust)": {"veggie": "Wedge salad", "prep": "Thaw deli meat & bacon", "ingredients": ["Thin crust frozen pizza", "Greens", "Bacon bits", "Avocados", "Tomato"]}, "Pizza (Costco)": {"veggie": "Wedge salad", "prep": "Thaw deli meat & bacon", "ingredients": ["Greens", "Bacon bits", "Avocados", "Tomato"]}, "Smoked chuck roast": {"veggie": "Slaw", "prep": "", "ingredients": ["Chuck roast", "Beef bouillon", "Slaw mix"]}, "Pizza (Homemade)": {"veggie": "Wedge salad", "prep": "Thaw deli meat & bacon", "ingredients": ["Pizza dough", "Pizza sauce", "Mozzarella cheese", "Pepperoni", "Greens", "Bacon bits", "Avocados", "Tomato"]}, "Sandwiches": {"veggie": "Slaw & green beans", "prep": "Thaw ground beef (for tacos), thaw beef & dogs", "ingredients": ["Deli turkey", "Deli ham", "Bread", "Tomatoes", "Green beans", "Bacon", "Slaw mix", "Avocados"]}, "Tacos": {"veggie": "Lettuce & tomato", "prep": "", "ingredients": ["Corn tortillas", "Ground beef", "Tomatoes", "Shredded cheddar", "Salsa", "Greens", "Avocados", "Sour cream"]}, "Taco bowls": {"veggie": "Lettuce & tomato", "prep": "", "ingredients": ["Ground beef", "Rice", "Tomatoes", "Shredded cheddar", "Salsa", "Greens"]}, "Leftovers": {"veggie": "Slaw", "prep": "Check Monday meats", "ingredients": ["Slaw mix"]}, "Burgers & dogs": {"veggie": "Fries & slaw", "prep": "", "ingredients": ["Hamburger buns", "Ground beef", "All-beef dogs", "Fries", "Slaw mix", "Avocados"]}, "Baby back ribs": {"veggie": "Slaw", "prep": "", "ingredients": ["Baby back ribs", "Slaw mix"]}, "Country-style ribs": {"veggie": "Slaw & baked beans", "prep": "", "ingredients": ["Country-style ribs", "Slaw mix", "Baked beans"]}, "Pasta": {"veggie": "Caesar salad & corn", "prep": "Thaw chicken breasts", "ingredients": ["Rotini pasta", "Marinara sauce", "Caesar dressing", "Corn", "Greens"]}, "Ribeye steak": {"veggie": "Steamed broccoli", "prep": "", "ingredients": ["Ribeye steaks", "Baking potatoes", "Broccoli"]}, "Asian Dumpling Bake": {"veggie": "Slaw", "prep": "", "ingredients": ["Frozen chicken potstickers", "Coconut milk", "Red Thai curry sauce", "Soyaki sauce", "Garlic", "Fresh spinach", "Slaw mix"]}, "Philly cheesesteak": {"veggie": "Fries", "prep": "", "ingredients": ["Shaved beef", "Hoagie rolls", "Provolone cheese", "Peppers", "Onions", "Fries"]}, "Pot roast": {"veggie": "Carrots & potatoes", "prep": "", "ingredients": ["Chuck roast", "Potatoes", "Carrots", "Onions", "Beef broth"]}, "Pork chops": {"veggie": "Slaw", "prep": "", "ingredients": ["Pork chops", "Slaw mix"]}, "Meatloaf": {"veggie": "Mashed potatoes & green beans", "prep": "", "ingredients": ["Ground beef", "Breadcrumbs", "Eggs", "Ketchup", "Potatoes", "Green beans"]}, "Rice casserole": {"veggie": "Steamed broccoli", "prep": "", "ingredients": ["Chicken thigh", "Rice", "Cheddar cheese", "Broccoli"]}, "Pulled pork sandwiches": {"veggie": "Slaw & baked beans", "prep": "", "ingredients": ["Pork shoulder", "Buns", "BBQ sauce", "Slaw mix", "Baked beans"]}, "Smoked pulled pork": {"veggie": "Slaw & baked beans", "prep": "", "ingredients": ["Pork shoulder", "BBQ sauce", "Slaw mix", "Baked beans"]}, "Smoked brisket": {"veggie": "Slaw & baked beans", "prep": "", "ingredients": ["Beef brisket", "BBQ sauce", "Slaw mix", "Baked beans"]}, "Soup / Chili": {"veggie": "Side salad", "prep": "", "ingredients": ["Ground beef", "Kidney beans", "Canned tomatoes", "Chili powder", "Greens"]}, "Turkey legs": {"veggie": "Green beans", "prep": "", "ingredients": ["Turkey legs", "Green beans"]}, "Wings": {"veggie": "Fries & celery", "prep": "", "ingredients": ["Chicken wings", "Wing sauce", "Celery", "Ranch", "Fries"]}};
+const MEAL_HISTORY = [{"date": "2026-10-19", "day": "Monday", "slot": "Dinner", "entree": "Enchiladas"}, {"date": "2026-10-20", "day": "Tuesday", "slot": "Dinner", "entree": "Sandwiches"}, {"date": "2026-10-21", "day": "Wednesday", "slot": "Dinner", "entree": "Burgers & dogs"}, {"date": "2026-10-22", "day": "Thursday", "slot": "Dinner", "entree": "Leftovers"}, {"date": "2026-10-23", "day": "Friday", "slot": "Dinner", "entree": "Pizza (Homemade)"}, {"date": "2026-10-24", "day": "Saturday", "slot": "Lunch", "entree": "Chicken tenders & nuggets"}, {"date": "2026-10-24", "day": "Saturday", "slot": "Dinner", "entree": "Soup / Chili"}, {"date": "2026-10-25", "day": "Sunday", "slot": "Lunch", "entree": "Philly cheesesteak"}, {"date": "2026-10-26", "day": "Monday", "slot": "Dinner", "entree": "Baby back ribs"}, {"date": "2026-10-27", "day": "Tuesday", "slot": "Dinner", "entree": "Egg skillet"}, {"date": "2026-10-28", "day": "Wednesday", "slot": "Dinner", "entree": "Pasta"}, {"date": "2026-10-29", "day": "Thursday", "slot": "Dinner", "entree": "Chicken Alfredo"}, {"date": "2026-10-30", "day": "Friday", "slot": "Dinner", "entree": "Pizza (Little Caesars)"}, {"date": "2026-10-31", "day": "Saturday", "slot": "Lunch", "entree": "Sandwiches"}, {"date": "2026-10-31", "day": "Saturday", "slot": "Dinner", "entree": "Tacos"}, {"date": "2026-11-01", "day": "Sunday", "slot": "Lunch", "entree": "Leftovers"}, {"date": "2026-11-01", "day": "Sunday", "slot": "Dinner", "entree": "Burgers & dogs"}, {"date": "2026-11-02", "day": "Monday", "slot": "Dinner", "entree": "Asian Dumpling Bake"}, {"date": "2026-11-03", "day": "Tuesday", "slot": "Dinner", "entree": "Egg skillet"}, {"date": "2026-11-04", "day": "Wednesday", "slot": "Dinner", "entree": "Pasta"}, {"date": "2026-11-05", "day": "Thursday", "slot": "Dinner", "entree": "Ribeye steak"}, {"date": "2026-11-06", "day": "Friday", "slot": "Dinner", "entree": "Pizza (Frozen thin crust)"}, {"date": "2026-11-07", "day": "Saturday", "slot": "Lunch", "entree": "Sandwiches"}, {"date": "2026-11-07", "day": "Saturday", "slot": "Dinner", "entree": "Leftovers"}, {"date": "2026-11-08", "day": "Sunday", "slot": "Lunch", "entree": "Burgers & dogs"}, {"date": "2026-11-08", "day": "Sunday", "slot": "Dinner", "entree": "Tacos"}, {"date": "2026-11-09", "day": "Monday", "slot": "Dinner", "entree": "Tacos"}, {"date": "2026-11-10", "day": "Tuesday", "slot": "Dinner", "entree": "Sandwiches"}, {"date": "2026-11-11", "day": "Wednesday", "slot": "Dinner", "entree": "Country-style ribs"}, {"date": "2026-11-12", "day": "Thursday", "slot": "Dinner", "entree": "Burgers & dogs"}, {"date": "2026-11-13", "day": "Friday", "slot": "Dinner", "entree": "Pizza (Little Caesars)"}, {"date": "2026-11-14", "day": "Saturday", "slot": "Lunch", "entree": "Pasta"}, {"date": "2026-11-14", "day": "Saturday", "slot": "Dinner", "entree": "Baby back ribs"}, {"date": "2026-11-15", "day": "Sunday", "slot": "Lunch", "entree": "Leftovers"}, {"date": "2026-11-15", "day": "Sunday", "slot": "Dinner", "entree": "Egg skillet"}];
+const TARGET_MONDAY_STR = "2026-11-16";
+
+// Initial Current Plan
+let currentPlan = [{"day": "Monday", "slot": "Dinner", "entree": "Tacos", "veggie": "Lettuce & tomato", "fruit": "Apples", "thaw_prep": "Thaw deli meat", "ingredients": ["Corn tortillas", "Ground beef", "Tomatoes", "Shredded cheddar", "Salsa", "Greens", "Avocados", "Sour cream", "Apples"], "lymric": "Leftovers or taquitos"}, {"day": "Tuesday", "slot": "Dinner", "entree": "Sandwiches", "veggie": "Slaw & green beans", "fruit": "Strawberries & swerve", "thaw_prep": "Thaw beef x3", "ingredients": ["Deli turkey", "Deli ham", "Bread", "Tomatoes", "Green beans", "Bacon", "Slaw mix", "Avocados", "Strawberries", "Swerve"], "lymric": "PB&J"}, {"day": "Wednesday", "slot": "Dinner", "entree": "Beefy tomato rice casserole", "veggie": "Broccoli", "fruit": "Apples", "thaw_prep": "Parboil rice, Thaw beef & dogs", "ingredients": ["Ground beef", "Rice", "Tomato soup", "Cream of mushroom soup", "Broccoli", "Apples"], "lymric": "Eggies"}, {"day": "Thursday", "slot": "Dinner", "entree": "Burgers & dogs", "veggie": "Fries & slaw", "fruit": "Apples", "thaw_prep": "", "ingredients": ["Hamburger buns", "Ground beef", "All-beef dogs", "Fries", "Slaw mix", "Avocados", "Apples"], "lymric": "Hot dog, leftovers, corn dog, or nuggets"}, {"day": "Friday", "slot": "Dinner", "entree": "Pizza (Little Caesars)", "veggie": "Wedge salad", "fruit": "Strawberries & swerve", "thaw_prep": "Thaw sausage, bacon, and/or ham, Thaw chuck roast", "ingredients": ["Greens", "Bacon bits", "Avocados", "Tomato", "Strawberries", "Swerve"], "lymric": "Pizza"}, {"day": "Saturday", "slot": "Lunch", "entree": "Egg skillet", "veggie": "None", "fruit": "Apples", "thaw_prep": "Thaw beef x3", "ingredients": ["Eggland's Best eggs (24-pack)", "Sausage", "Bacon", "Ham", "Spinach", "Fries", "Peppers", "Onions", "Cream cheese", "Green chili", "Apples"], "lymric": "Eggies"}, {"day": "Saturday", "slot": "Dinner", "entree": "Smoked chuck roast", "veggie": "Slaw", "fruit": "Apples", "thaw_prep": "", "ingredients": ["Chuck roast", "Beef bouillon", "Slaw mix", "Apples"], "lymric": "Leftovers or nuggets"}, {"day": "Sunday", "slot": "Lunch", "entree": "Leftovers", "veggie": "Slaw", "fruit": "Strawberries & swerve", "thaw_prep": "Check Monday dinner", "ingredients": ["Slaw mix", "Strawberries", "Swerve"], "lymric": "Leftovers"}, {"day": "Sunday", "slot": "Dinner", "entree": "Pasta", "veggie": "Caesar salad & corn", "fruit": "Apples", "thaw_prep": "", "ingredients": ["Rotini pasta", "Marinara sauce", "Caesar dressing", "Corn", "Greens", "Apples"], "lymric": "Pasta"}];
+
+// Day Offsets
+const DAY_OFFSETS = {
+    "Monday": 0,
+    "Tuesday": 1,
+    "Wednesday": 2,
+    "Thursday": 3,
+    "Friday": 4,
+    "Saturday": 5,
+    "Sunday": 6
+};
+
+// Calculate Recency as of specific meal date
+function calculateMealRecency(entree, dayName) {
+    const offset = DAY_OFFSETS[dayName] || 0;
+    const parts = TARGET_MONDAY_STR.split("-").map(Number);
+    const mealDate = new Date(parts[0], parts[1] - 1, parts[2] + offset);
+
+    const norm = entree.trim().toLowerCase();
+    const matches = MEAL_HISTORY.filter(h => {
+        const hEnt = (h.entree || "").trim().toLowerCase();
+        return hEnt === norm ||
+            (norm.includes("pizza") && hEnt.includes("pizza")) ||
+            (norm.includes("taco") && hEnt.includes("taco"));
+    });
+
+    const exact = matches.filter(h => (h.entree || "").trim().toLowerCase() === norm);
+    const toUse = exact.length > 0 ? exact : matches;
+
+    let lastRecord = null;
+    if (toUse.length > 0) {
+        const sorted = toUse.slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+        const prior = sorted.filter(m => new Date(m.date) < mealDate);
+        if (prior.length > 0) {
+            lastRecord = prior[prior.length - 1];
+        }
+    }
+
+    if (lastRecord) {
+        const recDate = new Date(lastRecord.date);
+        const diffTime = mealDate.getTime() - recDate.getTime();
+        const daysAgo = Math.round(diffTime / (1000 * 60 * 60 * 24));
+        const gapOk = daysAgo >= 5;
+        return {
+            daysAgo: daysAgo,
+            gapOk: gapOk,
+            className: gapOk ? "rec-ready" : "rec-alert",
+            text: gapOk ? daysAgo + " days since last eaten" : daysAgo + " days since last eaten (<5d)"
+        };
+    }
+
+    return {
+        daysAgo: null,
+        gapOk: true,
+        className: "rec-na",
+        text: "Inactive window / Ready"
+    };
+}
+
+// Strict Fruit Law
+function getFruitForDay(dayName) {
+    if (dayName === "Tuesday" || dayName === "Friday" || dayName === "Sunday") {
+        return {
+            fruitDisplay: "Strawberries & swerve",
+            fruitItems: ["Strawberries", "Swerve"]
+        };
+    }
+    return {
+        fruitDisplay: "Apples",
+        fruitItems: ["Apples"]
+    };
+}
+
+// Get Defaults for Entree
+function getRecipeForEntree(entree, dayName) {
+    const rec = RECIPES[entree] || {
+        veggie: "Slaw",
+        prep: "",
+        ingredients: [entree, "Slaw mix"]
+    };
+    const fruitInfo = getFruitForDay(dayName);
+    
+    // Merge base ingredients with fruit items avoiding duplicates
+    const combinedIng = rec.ingredients.slice();
+    for (const f of fruitInfo.fruitItems) {
+        if (!combinedIng.includes(f)) {
+            combinedIng.push(f);
+        }
+    }
+
+    return {
+        veggie: rec.veggie,
+        fruit: fruitInfo.fruitDisplay,
+        prep: rec.prep,
+        ingredients: combinedIng
+    };
+}
+
+// Render All Cards
+function renderCards() {
+    const container = document.getElementById("cards-container");
+    container.innerHTML = "";
+
+    currentPlan.forEach((item, index) => {
+        const rec = calculateMealRecency(item.entree, item.day);
+        
+        // Options for entree select
+        const entreeOptions = MASTER_ENTREES.map(e => {
+            const selected = (e.toLowerCase() === item.entree.toLowerCase()) ? "selected" : "";
+            return `<option value="${e}" ${selected}>${e}</option>`;
+        }).join("");
+
+        // Swap options
+        const swapOptions = currentPlan.map((p, i) => {
+            if (i === index) return "";
+            return `<option value="${i}">Swap with ${p.day} (${p.slot})</option>`;
+        }).join("");
+
+        // Ingredients Checkboxes
+        const ingCheckboxes = item.ingredients.map(ing => {
+            return `<label class="check-item"><input type="checkbox" name="item" value="${ing}"> <span>${ing}</span></label>`;
+        }).join("");
+
+        const card = document.createElement("div");
+        card.className = "day-card";
+        card.id = `card-${index}`;
+        card.innerHTML = `
+            <div class="card-top-row">
+                <div class="day-title">${item.day} (${item.slot})</div>
+                <span class="slot-pill">${item.slot}</span>
+            </div>
+
+            <div class="entree-control-box">
+                <div class="entree-header-line">
+                    <span class="entree-label-tag">Entrée:</span>
+                    <select class="entree-select" onchange="changeEntree(${index}, this.value)">
+                        ${entreeOptions}
+                    </select>
+                    <span class="day-rec-pill ${rec.className}">${rec.text}</span>
+                </div>
+                <div class="shift-row">
+                    <button class="shift-btn" onclick="moveMeal(${index}, -1)" title="Move Up">⬆ Move Up</button>
+                    <button class="shift-btn" onclick="moveMeal(${index}, 1)" title="Move Down">⬇ Move Down</button>
+                    <select class="swap-select" onchange="swapMeals(${index}, this.value); this.value='';">
+                        <option value="">⇄ Swap with day...</option>
+                        ${swapOptions}
+                    </select>
+                </div>
+            </div>
+
+            <div class="sides-row">
+                <span class="side-pill veg-pill">Veg: ${item.veggie}</span>
+                <span class="side-pill fruit-pill">Fruit: ${item.fruit}</span>
+                ${item.thaw_prep ? `<span class="side-pill thaw-pill">Prep: ${item.thaw_prep}</span>` : ''}
+                ${item.lymric ? `<span class="side-pill" style="background:#e0f2fe;color:#0369a1;border:1px solid #bae6fd;">🧒 Lymric: ${item.lymric}</span>` : ''}
+            </div>
+
+            <div class="section-label">Check items we NEED to buy:</div>
+            <div class="checkbox-group">
+                ${ingCheckboxes}
+            </div>
+        `;
+        container.appendChild(card);
+    });
+
+    updateActionSummary();
+}
+
+// Change Entree on a Day Card
+function changeEntree(cardIndex, newEntree) {
+    const day = currentPlan[cardIndex].day;
+    const defaults = getRecipeForEntree(newEntree, day);
+    
+    currentPlan[cardIndex].entree = newEntree;
+    currentPlan[cardIndex].veggie = defaults.veggie;
+    currentPlan[cardIndex].fruit = defaults.fruit;
+    currentPlan[cardIndex].thaw_prep = defaults.prep;
+    currentPlan[cardIndex].ingredients = defaults.ingredients;
+
+    renderCards();
+    flashCard(cardIndex);
+}
+
+// Swap Two Meals
+function swapMeals(indexA, indexBStr) {
+    if (indexBStr === "" || indexBStr === null) return;
+    const indexB = parseInt(indexBStr, 10);
+    if (isNaN(indexB) || indexB < 0 || indexB >= currentPlan.length) return;
+
+    // Swap entrees
+    const entreeA = currentPlan[indexA].entree;
+    const entreeB = currentPlan[indexB].entree;
+
+    // Apply recipe defaults to their new days
+    const defA = getRecipeForEntree(entreeB, currentPlan[indexA].day);
+    const defB = getRecipeForEntree(entreeA, currentPlan[indexB].day);
+
+    currentPlan[indexA].entree = entreeB;
+    currentPlan[indexA].veggie = defA.veggie;
+    currentPlan[indexA].fruit = defA.fruit;
+    currentPlan[indexA].thaw_prep = defA.prep;
+    currentPlan[indexA].ingredients = defA.ingredients;
+
+    currentPlan[indexB].entree = entreeA;
+    currentPlan[indexB].veggie = defB.veggie;
+    currentPlan[indexB].fruit = defB.fruit;
+    currentPlan[indexB].thaw_prep = defB.prep;
+    currentPlan[indexB].ingredients = defB.ingredients;
+
+    renderCards();
+    flashCard(indexA);
+    flashCard(indexB);
+}
+
+// Move Meal Up or Down
+function moveMeal(index, direction) {
+    const target = index + direction;
+    if (target < 0 || target >= currentPlan.length) return;
+    swapMeals(index, target.toString());
+}
+
+// Assign Entree from Master Bank
+function assignFromBank(entreeName, targetIndexStr) {
+    if (!targetIndexStr) return;
+    const targetIndex = parseInt(targetIndexStr, 10);
+    if (isNaN(targetIndex) || targetIndex < 0 || targetIndex >= currentPlan.length) return;
+    changeEntree(targetIndex, entreeName);
+}
+
+// Flash Visual Animation on Card Update
+function flashCard(index) {
+    const el = document.getElementById(`card-${index}`);
+    if (el) {
+        el.classList.add("flash-highlight");
+        el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        setTimeout(() => {
+            el.classList.remove("flash-highlight");
+        }, 900);
+    }
+}
+
+// Filter Catalog Table
+function filterCatalog() {
+    const query = document.getElementById("catalog-search").value.toLowerCase().trim();
+    const rows = document.querySelectorAll("#catalog-tbody tr");
+    rows.forEach(row => {
+        const entree = row.getAttribute("data-entree") || "";
+        if (entree.toLowerCase().includes(query)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
+
+// Update Bottom Status Summary
+function updateActionSummary() {
+    const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+    let alerts = 0;
+    currentPlan.forEach(p => {
+        const r = calculateMealRecency(p.entree, p.day);
+        if (!r.gapOk) alerts++;
+    });
+
+    const summaryEl = document.getElementById("action-summary");
+    if (alerts > 0) {
+        summaryEl.innerHTML = `<span style="color:#fca5a5;font-weight:700;">⚠️ ${alerts} slot(s) under 5-day gap law</span> • ${checkedCount} grocery item(s) selected`;
+    } else {
+        summaryEl.innerHTML = `<span style="color:#86efac;font-weight:700;">✓ 100% 5-day gap compliant</span> • ${checkedCount} grocery item(s) selected`;
+    }
+}
+
+document.addEventListener("change", (e) => {
+    if (e.target.type === "checkbox") {
+        updateActionSummary();
+    }
+});
+
+// Save Plan Changes to Server
+async function savePlanChanges(showSuccess = true) {
+    try {
+        const res = await fetch('/save-plan', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ plan: currentPlan, timestamp: new Date().toISOString() })
+        });
+        if (showSuccess) {
+            document.getElementById("modal-title").innerText = "Plan Changes Saved!";
+            document.getElementById("modal-summary").innerText = "Your modified meal schedule has been saved and weekly_meal_plan.html has been updated for printing.";
+            document.getElementById("success-modal").style.display = "flex";
+        }
+    } catch (e) {
+        console.error("Save plan error:", e);
+        if (showSuccess) alert("Plan saved locally in your browser session.");
+    }
+}
+
+// Submit Approval
+async function submitApproval() {
+    const checked = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(el => el.value);
+    
+    try {
+        const res = await fetch('/approve', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                items: checked,
+                plan: currentPlan,
+                timestamp: new Date().toISOString()
+            })
+        });
+    } catch (e) {
+        console.error("Approval POST error:", e);
+    }
+
+    const summary = checked.length > 0 
+        ? checked.length + " item(s) selected for Fry's Food cart." 
+        : "No extra groceries selected (pantry fully stocked!).";
+    
+    document.getElementById("modal-title").innerText = "Meal Plan Approved & Saved!";
+    document.getElementById("modal-summary").innerText = summary + " Final printable fridge sheet regenerated.";
+    document.getElementById("success-modal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("success-modal").style.display = "none";
+}
+
+// Initialize on Load
+async function initDeck() {
+    try {
+        const res = await fetch('/current_plan.json?t=' + Date.now());
+        if (res.ok) {
+            const saved = await res.json();
+            if (Array.isArray(saved) && saved.length === 9) {
+                currentPlan = saved;
+            }
+        }
+    } catch (e) {
+        console.warn("Using embedded plan default", e);
+    }
+    renderCards();
+}
+
+initDeck();
+</script>
+
+</body>
+</html>
